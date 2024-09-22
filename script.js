@@ -41,3 +41,56 @@ calculateSavings.addEventListener('click', () =>{
     remainingBalanceEl.innerText = remainingBalance;
 
 })
+
+//history Tab Button
+const historyTab = document.getElementById('history-tab');
+historyTab.addEventListener('click', () =>{
+
+    historyTab.classList.add(
+        'text-white',
+        'font-semibold',
+        'bg-gradient-to-r',
+        'from-blue-500',
+        'to-purple-600'
+    );
+
+    const assistantTab = document.getElementById('assistant-tab');
+    assistantTab.classList.remove(
+        'text-white',
+        'font-semibold',
+        'bg-gradient-to-r',
+        'from-blue-500',
+        'to-purple-600'
+    );
+
+    const expenseForm = document.getElementById('expense-form');
+    expenseForm.classList.add('hidden');
+
+});
+
+//assistant Tab Button
+const assistantTab = document.getElementById('assistant-tab');
+assistantTab.addEventListener('click', () =>{
+
+    const historyTab = document.getElementById('history-tab');
+    historyTab.classList.remove(
+        'text-white',
+        'font-semibold',
+        'bg-gradient-to-r',
+        'from-blue-500',
+        'to-purple-600'
+    );
+
+    const assistantTab = document.getElementById('assistant-tab');
+    assistantTab.classList.add(
+        'text-white',
+        'font-semibold',
+        'bg-gradient-to-r',
+        'from-blue-500',
+        'to-purple-600'
+    );
+
+    const expenseForm = document.getElementById('expense-form');
+    expenseForm.classList.remove('hidden');
+
+});
