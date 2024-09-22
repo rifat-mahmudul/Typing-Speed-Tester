@@ -1,6 +1,14 @@
+
 const calculate = document.getElementById('calculate');
 calculate.addEventListener('click', () =>{
+
     const income = getInputValue('income');
+
+    if(income < 0 || isNaN(income)){
+        document.getElementById('income-error').classList.remove('hidden');
+        return;
+    }
+
     const software = getInputValue('software');
     const courses = getInputValue('courses');
     const internet = getInputValue('internet');
@@ -16,7 +24,28 @@ calculate.addEventListener('click', () =>{
     balanceEl.innerText = balance;
 
     const results = document.getElementById('results');
-    results.classList.remove('hidden')
+    results.classList.remove('hidden');
+
+    if(software < 0 || isNaN(software) || courses < 0 || isNaN(courses) || internet < 0 || isNaN(internet)){
+        document.getElementById('software-error').classList.remove('hidden');
+        return;
+    }
+
+    if(courses < 0 || isNaN(courses)){
+        document.getElementById('courses-error').classList.remove('hidden');
+        return;
+    }
+
+    if(internet < 0 || isNaN(internet)){
+        document.getElementById('internet-error').classList.remove('hidden');
+        return;
+    }
+
+    if(totalExpenses > income){
+        document.getElementById('logic-error').classList.remove('hidden');
+        return;
+    }
+
 })
 
 
@@ -40,6 +69,10 @@ calculateSavings.addEventListener('click', () =>{
     const remainingBalanceEl = document.getElementById('remaining-balance');
     remainingBalanceEl.innerText = remainingBalance;
 
+    if(savings < 0 || isNaN(savings)){
+        document.getElementById('savings-error').classList.remove('hidden');
+        return;
+    }
 })
 
 //history Tab Button
